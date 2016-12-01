@@ -32,7 +32,8 @@ RUN apt-get update && apt-get install -y \
   gperf \
   libtool \
   patchutils \
-  bc
+  bc \
+  git
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
