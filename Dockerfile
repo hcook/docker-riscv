@@ -20,23 +20,19 @@ RUN apt-get update && apt-get install -y \
   autoconf \
   automake \
   autotools-dev \
-  bc \
-  bison \
-  build-essential \
   curl \
-  emacs24-nox \
-  flex \
-  gawk \
-  git \
-  gperf \
   libmpc-dev \
   libmpfr-dev \
   libgmp-dev \
+  gawk \
+  build-essential \
+  bison \
+  flex \
+  texinfo \
+  gperf \
   libtool \
-  ncurses-dev \
   patchutils \
-  squashfs-tools \
-  texinfo
+  bc
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
