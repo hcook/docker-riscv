@@ -12,7 +12,7 @@
 FROM ubuntu:15.10
 
 # Set the maintainer
-MAINTAINER Stephen Bates (sbates130272) <sbates@raithlin.com>
+MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 
 # Install some base tools that we will need to get the risc-v
 # toolchain working.
