@@ -8,19 +8,16 @@
 # information. This Dockerfile is mostly based on the instructions
 # found at https://github.com/riscv/riscv-tools.
 
-# Pull base image (use Wily for now).
-FROM ubuntu:15.10
+# Pull base image
+FROM buildpack-deps:jessie
 
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 
 # Install some base tools that we will need to get the risc-v
 # toolchain working.
-RUN apt-get update && apt-get install -y \
-  autoconf \
-  automake \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   autotools-dev \
-  curl \
   libmpc-dev \
   libmpfr-dev \
   libgmp-dev \
@@ -30,10 +27,8 @@ RUN apt-get update && apt-get install -y \
   flex \
   texinfo \
   gperf \
-  libtool \
   patchutils \
-  bc \
-  git
+  bc 
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
