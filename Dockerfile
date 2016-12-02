@@ -17,7 +17,6 @@ MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 # Install some base tools that we will need to get the risc-v
 # toolchain working.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  autotools-dev \
   libmpc-dev \
   libmpfr-dev \
   libgmp-dev \
@@ -28,9 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   texinfo \
   gperf \
   patchutils \
-  bc \
-  gcc-4.8 \
-  g++-4.8
+  bc
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
