@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV RISCV /opt/riscv
 ENV NUMJOBS 1
 RUN mkdir -p $RISCV
+RUN touch $RISCV/install.stamp
 
 # Add the GNU utils bin folder to the path.
 ENV PATH $RISCV/bin:$PATH
