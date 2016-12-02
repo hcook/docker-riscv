@@ -49,9 +49,9 @@ RUN git clone https://github.com/riscv/riscv-tools.git && \
 WORKDIR $RISCV/riscv-tools
 RUN sed -i 's/JOBS=16/JOBS=$NUMJOBS/' build.common && \
   ./build.sh
+RUN rm -rf *
 
-# Run a simple test to make sure at least spike, pk and the Newlib
-# compiler are setup correctly.
+# Run a simple test 
 RUN mkdir -p $RISCV/test
 WORKDIR $RISCV/test
 RUN echo '#include <stdio.h>\n int main(void) { printf("Hello \
