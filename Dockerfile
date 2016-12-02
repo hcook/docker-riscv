@@ -27,7 +27,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   texinfo \
   gperf \
   patchutils \
-  bc
+  bc \
+  git
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
