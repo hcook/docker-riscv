@@ -9,7 +9,7 @@
 # found at https://github.com/riscv/riscv-tools.
 
 # Pull base image
-FROM buildpack-deps:jessie
+FROM openjdk:9-jre
 
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
