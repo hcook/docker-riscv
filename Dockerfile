@@ -9,7 +9,7 @@
 # found at https://github.com/riscv/riscv-tools.
 
 # Pull base image
-FROM openjdk:9-jre
+FROM openjdk:8
 
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
