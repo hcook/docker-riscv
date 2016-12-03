@@ -64,9 +64,10 @@ RUN echo '#include <stdio.h>\n int main(void) { printf("Hello \
 ENV VERILATOR_VERSION 3_884
 RUN git clone http://git.veripool.org/git/verilator && \
   cd verilator && \ 
-  git checkout verilator_$VERILATOR_VERSION && \ # Switch to specified version
-  autoconf     && \  # Create ./configure script
+  git checkout verilator_$VERILATOR_VERSION && \
+  autoconf     && \
   ./configure  && \
   make         && \
-  make install
+  make install &&
+  make test
 ENV INSTALLED_VERILATOR $(which verilator)
