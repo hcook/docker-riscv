@@ -17,6 +17,7 @@ MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 # Install some base tools that we will need to get the risc-v
 # toolchain working.
 RUN apt-get update && apt-get install -y --no-install-recommends \
+  autoconf \
   libmpc-dev \
   libmpfr-dev \
   libgmp-dev \
@@ -28,7 +29,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gperf \
   patchutils \
   bc \
-  git
+  git \
+  verilator
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
@@ -57,3 +59,14 @@ WORKDIR $RISCV/test
 RUN echo '#include <stdio.h>\n int main(void) { printf("Hello \
   world!\\n"); return 0; }' > hello.c && \
   riscv64-unknown-elf-gcc -o hello hello.c && spike pk hello
+
+# Install verilator
+ENV VERILATOR_VERSION 3_884
+RUN git clone http://git.veripool.org/git/verilator && \
+  cd verilator && \ 
+  git checkout verilator_$VERILATOR_VERSION && \ # Switch to specified version
+  autoconf     && \  # Create ./configure script
+  ./configure  && \
+  make         && \
+  make install
+ENV INSTALLED_VERILATOR $(which verilator)
