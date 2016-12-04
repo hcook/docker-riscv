@@ -54,10 +54,9 @@ RUN sed -i 's/JOBS=16/JOBS=$NUMJOBS/' build.common && \
 RUN rm -rf *
 
 # Install verilator
-ENV VERILATOR_VERSION 3_884
 RUN git clone http://git.veripool.org/git/verilator
 WORKDIR $RISCV/test/verilator
-RUN git checkout verilator_$VERILATOR_VERSION
+RUN git checkout verilator_3_884
 RUN autoconf
 RUN ./configure
 RUN make
