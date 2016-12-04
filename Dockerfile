@@ -62,12 +62,12 @@ RUN echo '#include <stdio.h>\n int main(void) { printf("Hello \
 
 # Install verilator
 ENV VERILATOR_VERSION 3_884
-RUN git clone http://git.veripool.org/git/verilator && \
-  cd verilator && \ 
-  git checkout verilator_$VERILATOR_VERSION && \
-  autoconf     && \
-  ./configure  && \
-  make         && \
-  make install &&
-  make test
+RUN git clone http://git.veripool.org/git/verilator
+WORKDIR $RISCV/test/verilator
+RUN git checkout verilator_$VERILATOR_VERSION
+RUN autoconf
+RUN ./configure
+RUN make
+RUN make install
+RUN make test
 ENV INSTALLED_VERILATOR $(which verilator)
