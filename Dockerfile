@@ -53,13 +53,6 @@ RUN sed -i 's/JOBS=16/JOBS=$NUMJOBS/' build.common && \
   ./build.sh
 RUN rm -rf *
 
-# Run a simple test 
-RUN mkdir -p $RISCV/test
-WORKDIR $RISCV/test
-RUN echo '#include <stdio.h>\n int main(void) { printf("Hello \
-  world!\\n"); return 0; }' > hello.c && \
-  riscv64-unknown-elf-gcc -o hello hello.c && spike pk hello
-
 # Install verilator
 ENV VERILATOR_VERSION 3_884
 RUN git clone http://git.veripool.org/git/verilator
@@ -69,5 +62,5 @@ RUN autoconf
 RUN ./configure
 RUN make
 RUN make install
-RUN make test
 ENV INSTALLED_VERILATOR $(which verilator)
+WORKDIR $RISCV/test
