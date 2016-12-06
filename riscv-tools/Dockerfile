@@ -1,7 +1,5 @@
 #
-# RISC-V Dockerfile
-#
-# https://github.com/sbates130272/docker-riscv
+# riscv-tools Dockerfile
 #
 # This Dockerfile creates a container full of lots of useful tools for
 # RISC-V development. See associated README.md for more
@@ -34,7 +32,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
-ENV NUMJOBS 1
 RUN mkdir -p $RISCV
 RUN touch $RISCV/install.stamp
 
@@ -49,18 +46,6 @@ RUN git clone https://github.com/riscv/riscv-tools.git && \
 
 # Now build the toolchain for RISCV. Set -j 1 to avoid issues on VMs.
 WORKDIR $RISCV/riscv-tools
-RUN sed -i 's/JOBS=16/JOBS=$NUMJOBS/' build.common && \
+RUN sed -i 's/JOBS=16/JOBS=1/' build.common && \
   ./build.sh
 RUN rm -rf *
-
-# Install verilator
-WORKDIR $RISCV/test
-RUN git clone http://git.veripool.org/git/verilator
-WORKDIR $RISCV/test/verilator
-RUN git checkout verilator_3_884
-RUN autoconf
-RUN ./configure
-RUN make
-RUN make install
-ENV INSTALLED_VERILATOR $(which verilator)
-WORKDIR $RISCV/test
