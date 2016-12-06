@@ -12,10 +12,8 @@ FROM openjdk:8
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 
-# Install some base tools that we will need to get the risc-v
-# toolchain working.
+# dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  autoconf \
   libmpc-dev \
   libmpfr-dev \
   libgmp-dev \
