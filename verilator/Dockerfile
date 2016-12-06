@@ -14,6 +14,10 @@ FROM hcook/docker-riscv:tools
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 
+# dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  autoconf
+
 # Install verilator
 WORKDIR $RISCV/test
 RUN git clone http://git.veripool.org/git/verilator
