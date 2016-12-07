@@ -7,25 +7,10 @@
 # found at https://github.com/riscv/riscv-tools.
 
 # Pull base image
-FROM openjdk:8
+FROM hcook/docker-riscv:dependencies
 
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
-
-# dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  libmpc-dev \
-  libmpfr-dev \
-  libgmp-dev \
-  gawk \
-  build-essential \
-  bison \
-  flex \
-  texinfo \
-  gperf \
-  patchutils \
-  bc \
-  git
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
