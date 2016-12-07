@@ -3,7 +3,7 @@
 #
 
 # Pull base image
-FROM hcook/docker-riscv:verilog
+FROM hcook/docker-riscv:verilator
 
 # Set the maintainer
 MAINTAINER Henry Cook (hcook) <henry@sifive.com>
