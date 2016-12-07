@@ -12,5 +12,5 @@ MAINTAINER Henry Cook (hcook) <henry@sifive.com>
 WORKDIR $RISCV
 RUN git clone https://github.com/ucb-bar/rocket-chip.git && \
   cd rocket-chip && git submodule update --init chisel3
-RUN java -Xmx2G -Xss8M -jar /opt/riscv/test/rocket-chip/sbt-launch.jar "project chisel; compile"
+RUN java -Xmx2G -Xss8M -jar /opt/riscv/rocket-chip/sbt-launch.jar "project chisel; compile"
 RUN rm -rf rocket-chip
