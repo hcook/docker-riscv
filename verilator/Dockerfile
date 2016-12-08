@@ -24,4 +24,5 @@ RUN ./configure
 RUN make
 RUN make install
 ENV INSTALLED_VERILATOR /usr/local/bin/verilator
+ENV TARGET_VERILATOR /usr/local/bin/verilator
 WORKDIR $RISCV/test
