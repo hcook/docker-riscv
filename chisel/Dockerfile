@@ -13,8 +13,8 @@ WORKDIR $RISCV
 RUN git clone https://github.com/ucb-bar/rocket-chip.git
 WORKDIR $RISCV/rocket-chip
 RUN git submodule update --init
-RUN cd firrtl; java -Xmx2G -Xss8M -jar /opt/riscv/test/sbt-launch.jar "publish-local"
-RUN cd chisel3; java -Xmx2G -Xss8M -jar /opt/riscv/test/sbt-launch.jar "publish-local"
+RUN cd firrtl; java -Xmx2G -Xss8M -jar $RISCV/rocket-chip/sbt-launch.jar "publish-local"
+RUN cd chisel3; java -Xmx2G -Xss8M -jar $RISCV/rocket-chip/sbt-launch.jar "publish-local"
 WORKDIR $RISCV
 RUN rm -rf rocket-chip
 WORKDIR $RISCV/test
