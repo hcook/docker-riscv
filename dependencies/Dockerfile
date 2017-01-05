@@ -26,4 +26,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   patchutils \
   bc \
   git \
-  autoconf
+  autoconf \
+  zlib1g-dev
